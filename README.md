@@ -65,7 +65,7 @@ For the Fine-Tuning Notebook, let's follow these steps:
 3. Save the fine-tuned model and use it for generating improved images based on the CIFAR-10 dataset.
 
 
-### Output Images
+## Output Images
 
 Here are some of the generated images:
 
