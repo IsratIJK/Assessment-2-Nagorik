@@ -3,7 +3,8 @@
 This repository demonstrates how to fine-tune a lightweight Stable Diffusion model for image-to-image generation. The project consists of two primary notebooks:
 
 1. **Image Generation Notebook**: This notebook uses a pre-trained Stable Diffusion model to generate new images based on the CIFAR-10 dataset.
-2. **Fine-Tuning Notebook**: This notebook fine-tunes the Stable Diffusion model on custom data to enhance its image generation capabilities.
+   - [Link to Kaggle Notebook](https://www.kaggle.com/code/isratjahankhan/image-generation-notebook)
+3. **Fine-Tuning Notebook**: This notebook fine-tunes the Stable Diffusion model on custom data to enhance its image generation capabilities.
 
 ## Requirements
 
