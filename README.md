@@ -64,5 +64,13 @@ For the Fine-Tuning Notebook, let's follow these steps:
 2. Run the fine-tuning script to adapt the pre-trained Stable Diffusion model on the CIFAR-10 dataset.
 3. Save the fine-tuned model and use it for generating improved images based on the CIFAR-10 dataset.
 
+
+### Output Images
+
+Here are some of the generated images:
+
 ![image alt](https://github.com/IsratIJK/Assessment-2-Nagorik/blob/main/generated_image_3.jpg?raw=true)
+![image alt](https://github.com/IsratIJK/Assessment-2-Nagorik/blob/main/generated_image_5.jpg?raw=true)
+![image alt](https://github.com/IsratIJK/Assessment-2-Nagorik/blob/main/generated_image_8.jpg?raw=true)
+
 
