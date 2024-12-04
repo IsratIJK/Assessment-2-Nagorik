@@ -69,8 +69,8 @@ For the Fine-Tuning Notebook, let's follow these steps:
 
 Here are some of the generated images:
 
-![image alt](https://github.com/IsratIJK/Assessment-2-Nagorik/blob/main/generated_image_3.jpg?raw=true)
-![image alt](https://github.com/IsratIJK/Assessment-2-Nagorik/blob/main/generated_image_5.jpg?raw=true)
-![image alt](https://github.com/IsratIJK/Assessment-2-Nagorik/blob/main/generated_image_8.jpg?raw=true)
+![image alt](https://github.com/IsratIJK/Assessment-2-Nagorik/blob/main/Output-images/generated_image_2.jpg?raw=true)
+![image alt](https://github.com/IsratIJK/Assessment-2-Nagorik/blob/main/Output-images/generated_image_5.jpg?raw=true)
+![image alt](https://github.com/IsratIJK/Assessment-2-Nagorik/blob/main/Output-images/generated_image_8.jpg?raw=true)
 
 
