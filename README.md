@@ -65,6 +65,4 @@ For the Fine-Tuning Notebook, let's follow these steps:
 3. Save the fine-tuned model and use it for generating improved images based on the CIFAR-10 dataset.
 
 
-## License
 
-This project is licensed under the MIT License.
