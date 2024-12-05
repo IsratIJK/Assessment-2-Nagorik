@@ -76,9 +76,8 @@ In this step, the pre-trained Stable Diffusion model is adapted to generate imag
    - The training process runs for a specified number of epochs (default: 10) where the model learns to generate images based on the CIFAR-10 dataset.
    
 5. **Image Generation**:
-   - During each epoch, the model generates images in two ways:
-     - **Text-to-Image**: The model generates images from text prompts (e.g., "A high-quality, detailed image of a {class_name}").
-     - **Image-to-Image**: The model generates enhanced versions of input images using the CIFAR-10 images as the base, modified by a corresponding text prompt (e.g., "Enhanced, photorealistic version of a {class_name}").
+   - During each epoch, the model generates images in this way:
+   - **Image-to-Image**: The model generates enhanced versions of input images using the CIFAR-10 images as the base, modified by a corresponding text prompt (e.g., "Enhanced, photorealistic version of a {class_name}").
    - The generated images are saved for each epoch, providing a progression of improvements in image quality.
 
 6. **Error Handling**: 
