@@ -100,9 +100,9 @@ Here are some of the generated images from the first notebook (**Image Generatio
 
 Here are some of the generated images from the second notebook (**Fine-Tuning Notebook**):
 
-![image alt](https://github.com/IsratIJK/Assessment-2-Nagorik/blob/main/Output-images/generated_image_2.jpg?raw=true)
-![image alt](https://github.com/IsratIJK/Assessment-2-Nagorik/blob/main/Output-images/generated_image_5.jpg?raw=true)
-![image alt](https://github.com/IsratIJK/Assessment-2-Nagorik/blob/main/Output-images/generated_image_8.jpg?raw=true)
+![image alt](https://github.com/IsratIJK/Assessment-2-Nagorik/blob/main/Output-images/generated_image_0.jpg?raw=true)
+![image alt](https://github.com/IsratIJK/Assessment-2-Nagorik/blob/main/Output-images/generated_image_0_method1.png?raw=true)
+![image alt](https://github.com/IsratIJK/Assessment-2-Nagorik/blob/main/Output-images/generated_image_0_method2.png?raw=true)
 
 
 
