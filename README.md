@@ -7,6 +7,8 @@ This repository demonstrates how to fine-tune a lightweight Stable Diffusion mod
    - [Link to Kaggle Notebook](https://www.kaggle.com/code/isratjahankhan/image-generation-notebook)
 2. **Fine-Tuning Notebook**: This notebook fine-tunes the Stable Diffusion model on custom data to enhance its image generation capabilities.
    - [Link to Kaggle Notebook](https://www.kaggle.com/code/isratjahankhan/fine-tuning-notebook)
+  
+**Note:** The outputs from the second notebook were not saved due to the time-intensive process of handling 50,000 images from the CIFAR-10 dataset in each epoch. To improve processing efficiency, a "KeyboardInterrupt" is used after two epochs to save the output images. Since this is a public notebook, the "KeyboardInterrupt" error appearing in the output monitor may not be ideal. Therefore, only the code has been included without the output images.
 
 
 ## Requirements
