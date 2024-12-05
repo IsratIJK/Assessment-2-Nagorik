@@ -1,10 +1,11 @@
+
 # Fine-Tuning Lightweight Stable Diffusion for Image-to-Image Generation
 
 This repository demonstrates how to fine-tune a lightweight Stable Diffusion model for image-to-image generation. The project consists of two primary notebooks:
 
 1. **Image Generation Notebook**: This notebook uses a pre-trained Stable Diffusion model to generate new images based on the CIFAR-10 dataset.
    - [Link to Kaggle Notebook](https://www.kaggle.com/code/isratjahankhan/image-generation-notebook)
-3. **Fine-Tuning Notebook**: This notebook fine-tunes the Stable Diffusion model on custom data to enhance its image generation capabilities.
+2. **Fine-Tuning Notebook**: This notebook fine-tunes the Stable Diffusion model on custom data to enhance its image generation capabilities.
 
 ## Requirements
 
@@ -47,31 +48,63 @@ This notebook focuses on generating new images based on the CIFAR-10 dataset by 
 
 ### 2. Fine-Tuning Notebook
 
-In this notebook, the pre-trained Stable Diffusion model is fine-tuned on a custom dataset to improve the quality of image generation for specific tasks.
+This notebook involves fine-tuning the pre-trained Stable Diffusion model on a custom dataset to improve its image generation capabilities.
 
-#### Key Steps:
+#### Fine-Tuning Process
 
-- **Dataset Preparation**: Custom images are used for fine-tuning. The dataset should consist of images relevant to the intended image generation task.
-- **Model Freezing**: To preserve the knowledge from the pre-trained model, some layers are frozen while the later layers are fine-tuned on the new dataset.
-- **Fine-Tuning**: The model is trained using a lower learning rate to allow gradual learning without overfitting. The fine-tuning process helps the model adapt to the characteristics of the custom dataset.
-- **Output**: After fine-tuning, the model should generate higher-quality images that align more closely with the features present in the custom dataset.
+In this step, the pre-trained Stable Diffusion model is adapted to generate images that more closely align with the characteristics of a custom dataset, in this case, the CIFAR-10 dataset.
+
+**Key Steps Involved:**
+
+1. **Model Initialization**: 
+   - The pre-trained Stable Diffusion model (`stabilityai/stable-diffusion-2-1-base`) is loaded into the notebook. This model is optimized for faster image generation while maintaining high-quality results.
+   - The model is moved to the appropriate device (GPU or CPU) for training.
+
+2. **Dataset Preparation**: 
+   - The CIFAR-10 dataset is used for fine-tuning. Custom transformations are applied to resize the images to 512x512 pixels and normalize them according to the pre-trained model's requirements. 
+   - A `DataLoader` is created to batch the images, shuffle the dataset, and load data in parallel using multiple workers.
+
+3. **Freezing Pre-Trained Layers**: 
+   - Some layers of the model are frozen to retain the knowledge from the pre-trained model while fine-tuning the later layers to learn specific features from the new dataset. This approach helps prevent overfitting and speeds up the training process.
+
+4. **Training and Optimization**: 
+   - The model is fine-tuned using the AdamW optimizer, which is ideal for fine-tuning large models. The learning rate is set to a low value (1e-5) to ensure gradual learning and avoid overfitting.
+   - The training process runs for a specified number of epochs (default: 10) where the model learns to generate images based on the CIFAR-10 dataset.
+   
+5. **Image Generation**:
+   - During each epoch, the model generates images in two ways:
+     - **Text-to-Image**: The model generates images from text prompts (e.g., "A high-quality, detailed image of a {class_name}").
+     - **Image-to-Image**: The model generates enhanced versions of input images using the CIFAR-10 images as the base, modified by a corresponding text prompt (e.g., "Enhanced, photorealistic version of a {class_name}").
+   - The generated images are saved for each epoch, providing a progression of improvements in image quality.
+
+6. **Error Handling**: 
+   - Comprehensive error handling is implemented throughout the fine-tuning process to manage issues that may arise during model loading, data processing, or image generation.
+
+**Output**: After fine-tuning, the model should generate higher-quality images that are more aligned with the features of the custom dataset.
 
 ## Example Usage
 
-After running the Image Generation Notebook, We can download and view the generated images saved in Google Drive. 
-For the Fine-Tuning Notebook, let's follow these steps:
+After running the Image Generation Notebook, you can download and view the generated images saved in Google Drive. For the Fine-Tuning Notebook, follow these steps:
 
 1. Use the CIFAR-10 dataset, which is already included and loaded in the notebook.
 2. Run the fine-tuning script to adapt the pre-trained Stable Diffusion model on the CIFAR-10 dataset.
 3. Save the fine-tuned model and use it for generating improved images based on the CIFAR-10 dataset.
 
-
 ## Output Images
 
-Here are some of the generated images:
+Here are some of the generated images from the first notebook (**Image Generation Notebook**):
 
 ![image alt](https://github.com/IsratIJK/Assessment-2-Nagorik/blob/main/Output-images/generated_image_2.jpg?raw=true)
 ![image alt](https://github.com/IsratIJK/Assessment-2-Nagorik/blob/main/Output-images/generated_image_5.jpg?raw=true)
 ![image alt](https://github.com/IsratIJK/Assessment-2-Nagorik/blob/main/Output-images/generated_image_8.jpg?raw=true)
 
+Here are some of the generated images from the second notebook (**Fine-Tuning Notebook**):
+
+![image alt](https://github.com/IsratIJK/Assessment-2-Nagorik/blob/main/Output-images/generated_image_2.jpg?raw=true)
+![image alt](https://github.com/IsratIJK/Assessment-2-Nagorik/blob/main/Output-images/generated_image_5.jpg?raw=true)
+![image alt](https://github.com/IsratIJK/Assessment-2-Nagorik/blob/main/Output-images/generated_image_8.jpg?raw=true)
+
+
+
+**Note**: The fine-tuning process described here does not include any advanced steps and is currently under construction. Additional features and improvements will be added in future updates.
 
