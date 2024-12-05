@@ -54,36 +54,36 @@ This notebook focuses on generating new images based on the CIFAR-10 dataset by 
 
 This notebook involves fine-tuning the pre-trained Stable Diffusion model on a custom dataset to improve its image generation capabilities.
 
-#### Fine-Tuning Process
-
-In this step, the pre-trained Stable Diffusion model is adapted to generate images that more closely align with the characteristics of a custom dataset, in this case, the CIFAR-10 dataset.
-
 **Key Steps Involved:**
 
-1. **Model Initialization**: 
-   - The pre-trained Stable Diffusion model (`stabilityai/stable-diffusion-2-1-base`) is loaded into the notebook. This model is optimized for faster image generation while maintaining high-quality results.
-   - The model is moved to the appropriate device (GPU or CPU) for training.
+1. **Initializing the Fine-Tuning Process**:  
+   The `StableDiffusionFinetuner` class is initialized with parameters like the model name (`stabilityai/stable-diffusion-2-1-base`), number of epochs (10), batch size (4), and learning rate (1e-5).
 
-2. **Dataset Preparation**: 
-   - The CIFAR-10 dataset is used for fine-tuning. Custom transformations are applied to resize the images to 512x512 pixels and normalize them according to the pre-trained model's requirements. 
-   - A `DataLoader` is created to batch the images, shuffle the dataset, and load data in parallel using multiple workers.
+2. **Setting the Device**:  
+   It checks if a GPU is available and assigns the device accordingly (GPU if available, otherwise CPU).
 
-3. **Freezing Pre-Trained Layers**: 
-   - Some layers of the model are frozen to retain the knowledge from the pre-trained model while fine-tuning the later layers to learn specific features from the new dataset. This approach helps prevent overfitting and speeds up the training process.
+3. **Loading the Pre-Trained Model**:  
+   The `StableDiffusionPipeline` is loaded using `from_pretrained`, which loads the pre-trained weights for the specified model. It is then moved to the selected device (GPU/CPU).
 
-4. **Training and Optimization**: 
-   - The model is fine-tuned using the AdamW optimizer, which is ideal for fine-tuning large models. The learning rate is set to a low value (1e-5) to ensure gradual learning and avoid overfitting.
-   - The training process runs for a specified number of epochs (default: 10) where the model learns to generate images based on the CIFAR-10 dataset.
-   
-5. **Image Generation**:
-   - During each epoch, the model generates images in this way:
-   - **Image-to-Image**: The model generates enhanced versions of input images using the CIFAR-10 images as the base, modified by a corresponding text prompt (e.g., "Enhanced, photorealistic version of a {class_name}").
-   - The generated images are saved for each epoch, providing a progression of improvements in image quality.
+4. **Preparing the Data**:  
+   The CIFAR-10 dataset is used for fine-tuning, with a transformation pipeline that resizes the images to 512x512, converts them to tensors, and normalizes them using ImageNet mean and standard deviation values. A DataLoader is created to handle batching and shuffling of the dataset.
 
-6. **Error Handling**: 
-   - Comprehensive error handling is implemented throughout the fine-tuning process to manage issues that may arise during model loading, data processing, or image generation.
+5. **Optimizing and Defining the Loss Function**:  
+   AdamW is used as the optimizer for fine-tuning, and MSE (Mean Squared Error) loss is used as the loss function. The optimizer is applied to the `unet` parameters of the model.
 
-**Output**: After fine-tuning, the model should generate higher-quality images that are more aligned with the features of the custom dataset.
+6. **Generating Images During Training**:  
+   During each epoch, the model generates images using the `image-to-image` transformation. The model takes an input image and generates a new version based on a prompt generated from the class label (e.g., "Enhanced, photorealistic version of a cat"). The strength parameter controls how much the input image is transformed, and the number of inference steps refines the generation.
+
+7. **Calculating Loss and Updating Weights**:  
+   The generated images are compared to the original images using the MSE loss function. Backpropagation is performed to compute gradients and update the weights of the model using the AdamW optimizer.
+
+8. **Saving Generated Images**:  
+   The generated images are saved after each batch to the specified output directory, and the loss is displayed to track training progress.
+
+9. **Epoch Iteration**:  
+   This process is repeated for a specified number of epochs (10 in your case). The model is progressively fine-tuned with each batch, and the loss is printed at the end of each epoch.
+
+The fine-tuning process essentially adjusts the weights of the pre-trained Stable Diffusion model to improve its performance in generating images based on the CIFAR-10 dataset.
 
 ## Example Usage
 
